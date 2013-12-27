@@ -55,8 +55,12 @@ private:
 	}
 
 public:
-	MeineZahl(int value, int maxVaue = INT_MAX, int minValue = INT_MIN )
-		:maxValue(maxVaue), minValue(minValue) {
+	//
+	// constructor with one parameter and 2 others with default values
+	// this constructor will be found for implicit conversion with : zahl = 12 ! 
+	// use explicit to disable implicit search for constructor 
+	explicit MeineZahl(int value, int maxVaue = INT_MAX, int minValue = INT_MIN )
+						:maxValue(maxVaue), minValue(minValue) {
 		this->value = value; 
 	}
 
@@ -68,6 +72,13 @@ public:
 
 	}
 
+	// 
+	// provide  implicit conversion to int.
+	//
+	operator int() { 
+		return this->value; 
+	}
+	
 	MeineZahl& operator=(const  MeineZahl & inp ) 
 		throw(MeineZahlOverflowException,MeineZahlUnderflowException) {
 

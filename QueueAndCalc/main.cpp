@@ -30,8 +30,39 @@ void printlistRecursive(Node * pNode ) {
 }
 */
 
+
+//
+// test implizit conversion to meineZahl 
+//
+void doCoutZahl (MeineZahl zahl) {
+cout << "test"  << zahl << endl; 
+}
+
+/*
+// if this method is available it will be used and no implicit 
+// conversion will be done 
+void doCoutZahl (int zahl) {
+cout << "test"  << zahl << endl; 
+}
+*/
+
 int main(int argc, _TCHAR* argv[]) {
 
+
+	MeineZahl zahl(0);
+
+	// Beispiel für impliziten Konstruktor ( wenn erlaubt ohne explicit keyword) 
+	// zahl = 2; 
+	// doCoutZahl( 333 ) ; // only available if function or inine conversion is available
+
+	zahl++; 
+
+	// Beispiel für Integer operator int() 
+	int native = zahl; 
+
+
+	// tests for using Node Elements with pointers to next nodes 
+	
 /*	Node * pNode = new Node(10,NULL); 
 	Node * pNext = new Node(123, pNode);
 	Node * pNext2 = new Node(1232, pNext);
